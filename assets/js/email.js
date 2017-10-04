@@ -158,10 +158,54 @@ $(document).ready(function(){
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
             $('div[id="topo"]').fadeIn();
+            $('span.nk-t-1').css("color","#000000");
+            $('span.nk-t-2').css("color","#000000");
+            $('span.nk-t-3').css("color","#000000");
+
         } else {
             $('div[id="topo"]').fadeOut();
+
+            $('span.nk-t-1').css("color","#ffffff");
+            $('span.nk-t-2').css("color","#ffffff");
+            $('span.nk-t-3').css("color","#ffffff");
         }
+        var tamanhoEcra = window.screen.availWidth;
+        var tamanhoBrowser = $(window).width();
+        console.log("Tamanho do ecrã: "+tamanhoEcra);
+        console.log("Tamanho do browser: "+tamanhoBrowser);
+
     });
+
+    window.onresize=function() {
+        getDimensions()
+    }
+
+    function getDimensions() {
+        var largura, altura;
+
+        largura = window.innerWidth;
+        altura = window.innerHeight;
+        console.log("Largura browser: "+largura);
+        if( largura < 992 ){
+            $('a#sobre').empty().html("<em>Sobre</em>");
+            $('a#tocar').empty().html("<em>Play</em>");
+            $('a#contato').empty().html("<em>Contato</em>");
+            $('a#social').empty().html("<em>Social</em>");
+            $('a#clipe').empty().html("<em>Clipe</em>");
+        }else{
+            $('a#sobre').empty().html("Sobre");
+            $('a#tocar').empty().html("Play");
+            $('a#contato').empty().html("Contato");
+            $('a#social').empty().html("Social");
+            $('a#clipe').empty().html("Clipe");
+        }
+    }
+
+    getDimensions();
+
+
+
+
 
     $('div[id="topo"]').click(function(){
         $('html, body').animate({scrollTop : 0},800);
