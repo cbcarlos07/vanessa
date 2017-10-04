@@ -153,7 +153,7 @@ $('.lnk-video').on('click', function () {
 
     console.log('Modal');
 });
-
+  /**/
 $(document).ready(function(){
     $(window).scroll(function(){
         if ($(this).scrollTop() > 100) {
